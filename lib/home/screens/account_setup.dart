@@ -68,32 +68,26 @@ class _AccountSetUpState extends State<AccountSetUp> {
             SizedBox(
               height: 20.0,
             ),
-            GridView.count(
-              crossAxisCount: 3,
+            Row(
+              mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 AccountButton(text: "Faith", onTap: () {}),
                 AccountButton(text: "Love", onTap: () {}),
                 AccountButton(text: "Prayer", onTap: () {}),
               ],
-            )
-            // Row(
-            //   mainAxisAlignment: MainAxisAlignment.start,
-            //   children: [
-            //
-            //   ],
-            // ),
-            // Row(
-            //   mainAxisAlignment: MainAxisAlignment.start,
-            //   children: [
-            //     AccountButton(
-            //       text: "Faith",
-            //       onTap: () {},
-            //       padding: 20.0,
-            //     ),
-            //     AccountButton(text: "Love", onTap: () {}),
-            //     AccountButton(text: "Prayer", onTap: () {}),
-            //   ],
-            // ),
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                AccountButton(
+                  text: "Faith",
+                  onTap: () {},
+                  padding: 20.0,
+                ),
+                AccountButton(text: "Love", onTap: () {}),
+                AccountButton(text: "Prayer", onTap: () {}),
+              ],
+            ),
           ],
         ),
       ),
