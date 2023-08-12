@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:jimpact/component/account_button.dart';
 import 'package:jimpact/providers/user_provider.dart';
-import 'package:provider/provider.dart';
-import 'package:jimpact/services/auth_service.dart';
+
 
 class AccountSetUp extends StatefulWidget {
   static const String routeName = "/account-setup";
@@ -13,16 +12,11 @@ class AccountSetUp extends StatefulWidget {
 }
 
 class _AccountSetUpState extends State<AccountSetUp> {
-  final AuthService authservice = AuthService();
-  @override
-  void initState() {
-    super.initState();
-    authservice.getUserData(context: context);
-  }
+
 
   @override
   Widget build(BuildContext context) {
-    final user = Provider.of<UserProvider>(context).user;
+
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
@@ -38,7 +32,7 @@ class _AccountSetUpState extends State<AccountSetUp> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              'Welcome ${user.userName}',
+              'Welcome DDK',
               style: const TextStyle(
                 fontSize: 16.0,
                 color: Colors.red,

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:jimpact/component/custom_textfield.dart';
-import 'package:jimpact/services/auth_service.dart';
 
 class AuthLogin extends StatefulWidget {
   static const String routeName = "/auth-login";
@@ -12,7 +11,6 @@ class AuthLogin extends StatefulWidget {
 
 class _AuthLoginState extends State<AuthLogin> {
   final _signInFormKey = GlobalKey<FormState>();
-  final AuthService authService = AuthService();
 
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passWordController = TextEditingController();
@@ -22,13 +20,6 @@ class _AuthLoginState extends State<AuthLogin> {
     super.dispose();
     _emailController.dispose();
     _passWordController.dispose();
-  }
-
-  void signInUser() {
-    authService.signInUser(
-        context: context,
-        email: _emailController.text,
-        password: _passWordController.text);
   }
 
   @override
@@ -93,9 +84,7 @@ class _AuthLoginState extends State<AuthLogin> {
                     padding:
                         MaterialStateProperty.all(const EdgeInsets.all(15.0))),
                 onPressed: () {
-                  if (_signInFormKey.currentState!.validate()) {
-                    signInUser();
-                  }
+                  if (_signInFormKey.currentState!.validate()) {}
                 },
                 child: const Row(
                   children: [

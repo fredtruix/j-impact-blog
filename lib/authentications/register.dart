@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:jimpact/component/custom_textfield.dart';
-import 'package:jimpact/services/auth_service.dart';
 import 'package:jimpact/authentications/login.dart';
 
 class AuthRegister extends StatefulWidget {
@@ -16,7 +15,7 @@ class AuthRegister extends StatefulWidget {
 class _AuthRegisterState extends State<AuthRegister> {
   bool terms = false;
   final _signUpFormKey = GlobalKey<FormState>();
-  final AuthService authService = AuthService();
+
 
   final TextEditingController _firstNameController = TextEditingController();
   final TextEditingController _lastNameController = TextEditingController();
@@ -36,15 +35,6 @@ class _AuthRegisterState extends State<AuthRegister> {
     _confirmPassController.dispose();
   }
 
-  void signUpUser() {
-    authService.signUpUser(
-        context: context,
-        firstName: _firstNameController.text,
-        lastName: _lastNameController.text,
-        userName: _userNameController.text,
-        email: _emailController.text,
-        password: _passWordController.text);
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -165,7 +155,7 @@ class _AuthRegisterState extends State<AuthRegister> {
                       ),
                       onPressed: () {
                         if (_signUpFormKey.currentState!.validate()) {
-                          signUpUser();
+            
                           Navigator.pushNamed(context, AuthLogin.routeName);
                         }
                       },
