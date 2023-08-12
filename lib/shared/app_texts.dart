@@ -20,10 +20,12 @@ abstract class AppTexts {
       'Render or get services anywhere\nin the world.';
 
   //! auth
-  static const String popupDescription =
-      'The online platform that connects\nyou to service providers around you.';
-  static const String signUp = 'Sign up';
-  static const String login = 'Login';
+  static const String letsGrow =
+      'Let\'s grow, connect and\nspread the revival fire';
+  static const String getStarted = 'Get Started';
+  static const String signIn = 'Sign in';
+  static const String orSignUp = 'or sign up with';
+ 
 
   // sign up
   static const String email = 'Email';
@@ -32,7 +34,6 @@ abstract class AppTexts {
   static const String renterPassWord = 'Re-enter  Password';
   static const String firstName = 'First Name';
   static const String lastName = 'Last Name';
-  static const String getStarted = 'Get Started';
   static const String signUpGoogle = 'Sign up with Google';
   static const String signUpApple = 'Sign up with Apple';
   static const String alreadyHaveAccount = 'Already have an account? ';

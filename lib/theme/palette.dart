@@ -1,14 +1,22 @@
 import 'package:flutter/material.dart';
 
 class Pallete {
+  //! specific
+  static const textBlack54 = Color(0xff545454);
+  static const textGrey78 = Color(0xFF787878);
+  static const textGrey41 = Color(0xFF414141);
+  static const textGrey70 = Color(0xFF707070);
+  static const redColor = Color(0xFFD03D2D);
+  static const textInputFillGreyEE = Color(0xFFEEECEC);
+  static const boxGrey = Color(0xFFEDEDED);
+
+  //!
+  //!
   static const blackColor = Color(0xff000000);
   static const greyColor = Color(0xff6A8189);
-  static const drawerColor = Color(0xff121212);
-  static const whiteColor = Colors.white;
+  static const whiteColor = Color(0xffFFFFFF);
   static const brownColor = Color(0xff593C2A);
-  static const redColor = Color(0xFFD10808);
   static const lightRed = Color(0xFFF2C2C2);
-  static const textGrey = Color(0xFFB6B6B6);
   static const greyFill = Color(0xFFF4F4F4);
   static const greey = Color(0xFFBCBCBC);
   static const dividerGrey = Color(0xFF979797);

@@ -37,14 +37,14 @@ class BButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: height ?? 47.h,
-      width: width ?? 333.w,
+      height: height ?? 56.h,
+      width: width ?? double.infinity,
       child: ElevatedButton(
         onPressed: onTap,
         style: ElevatedButton.styleFrom(
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.all(
-              Radius.circular(radius ?? 20.r),
+              Radius.circular(radius ?? 12.r),
             ),
           ),
           padding: EdgeInsets.zero,
@@ -58,11 +58,83 @@ class BButton extends StatelessWidget {
                   style: GoogleFonts.poppins(
                     textStyle: TextStyle(
                       fontSize: fontSize ?? 18.sp,
-                      fontWeight: fontWeight,
+                      fontWeight: fontWeight ?? FontWeight.w500,
                       color: textColor ?? Pallete.whiteColor,
                     ),
                   ))
               : item,
+        ),
+      ),
+    );
+  }
+}
+
+class ArrowButton extends StatelessWidget {
+  final double? height;
+  final double? width;
+  final double? fontSize;
+  final FontWeight? fontWeight;
+  final double? radius;
+  final void Function()? onTap;
+  final Color? color;
+  final Widget? item;
+  final String? text;
+  final bool isText;
+  final Color? textColor;
+  const ArrowButton({
+    Key? key,
+    this.height,
+    this.width,
+    this.fontSize,
+    this.radius,
+    required this.onTap,
+    this.color,
+    this.item,
+    this.text,
+    this.isText = true,
+    this.textColor,
+    this.fontWeight,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      height: height ?? 56.h,
+      width: width ?? double.infinity,
+      child: ElevatedButton(
+        onPressed: onTap,
+        style: ElevatedButton.styleFrom(
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.all(
+              Radius.circular(radius ?? 12.r),
+            ),
+          ),
+          padding: EdgeInsets.symmetric(horizontal: 21.w),
+          elevation: 0,
+          shadowColor: Colors.transparent,
+          backgroundColor: color ?? Pallete.redColor,
+        ),
+        child: Center(
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(
+                text ?? '',
+                style: GoogleFonts.poppins(
+                  textStyle: TextStyle(
+                    fontSize: fontSize ?? 18.sp,
+                    fontWeight: fontWeight ?? FontWeight.w500,
+                    color: textColor ?? Pallete.whiteColor,
+                  ),
+                ),
+              ),
+              Icon(
+                Icons.arrow_forward_rounded,
+                color: Pallete.whiteColor,
+                size: 24.sp,
+              ),
+            ],
+          ),
         ),
       ),
     );
@@ -101,18 +173,18 @@ class TransparentButton extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return SizedBox(
-      height: height ?? 47.h,
-      width: width ?? 333.w,
+      height: height ?? 56.h,
+      width: width ?? double.infinity,
       child: ElevatedButton(
         onPressed: onTap,
         style: ElevatedButton.styleFrom(
           shape: RoundedRectangleBorder(
             side: BorderSide(
-              width: 1,
+              width: 1.5,
               color: color ?? Pallete.redColor,
             ),
             borderRadius: BorderRadius.all(
-              Radius.circular(radius ?? 20.r),
+              Radius.circular(radius ?? 12.r),
             ),
           ),
           elevation: 0,
@@ -122,7 +194,7 @@ class TransparentButton extends ConsumerWidget {
         ),
         child: Center(
           child: isText == true
-              ? Text(text ?? '',
+              ? Text(text ?? '', 
                   style: GoogleFonts.poppins(
                     textStyle: TextStyle(
                       fontSize: fontSize ?? 18.sp,

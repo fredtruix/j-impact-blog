@@ -1,5 +1,4 @@
 import "package:flutter/material.dart";
-import 'package:jimpact/authentications/auth_screen.dart';
 
 // ignore: must_be_immutable
 class SliderTitle extends StatelessWidget {
@@ -43,9 +42,7 @@ class SliderTitle extends StatelessWidget {
               ),
               Builder(builder: (context) {
                 return GestureDetector(
-                  onTap: () {
-                    Navigator.pushNamed(context, AuthScreen.routeName);
-                  },
+                  onTap: () {},
                   child: const CircleAvatar(
                     radius: 30.0,
                     backgroundColor: Color(0xFFD03D2D),

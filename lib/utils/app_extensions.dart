@@ -6,6 +6,7 @@ import "package:flutter_animate/flutter_animate.dart";
 import "package:flutter_screenutil/flutter_screenutil.dart";
 import "package:intl/intl.dart";
 import 'package:google_fonts/google_fonts.dart';
+import "package:jimpact/theme/palette.dart";
 // import 'package:url_launcher/url_launcher.dart' show launchUrl;
 
 //! LOG EXTENSION - THIS HELPS TO CALL A .log() ON ANY OBJECT
@@ -52,17 +53,30 @@ extension StyledTextExtension on String {
     TextAlign? textAlign,
     int? maxLines,
     double? height,
+    TxtClrType? colorType,
+    TxtFntWt? fontWeightType,
   }) {
     return Text(this,
         overflow: overflow,
         textAlign: textAlign,
         maxLines: maxLines,
-        style: GoogleFonts.sora(
+        style: GoogleFonts.poppins(
           textStyle: TextStyle(
             height: height,
             fontSize: size ?? 14.sp,
-            color: color ?? Colors.black,
-            fontWeight: fontWeight,
+            color: switch (colorType) {
+              TxtClrType.g54 => Pallete.textBlack54,
+              TxtClrType.g41 => Pallete.textGrey41,
+              TxtClrType.g70 => Pallete.textGrey70,
+              TxtClrType.g78 => Pallete.textGrey78,
+              _ => color,
+            },
+            fontWeight: switch (fontWeightType) {
+              TxtFntWt.med => FontWeight.w500,
+              TxtFntWt.sBold => FontWeight.w600,
+              TxtFntWt.bold => FontWeight.w700,
+              _ => fontWeight,
+            },
             fontFamily: fontFamily,
             fontStyle: fontStyle,
             decoration: decoration,
@@ -110,17 +124,32 @@ extension StyledTextExtension14 on String {
     TextDecoration? decoration,
     TextAlign? textAlign,
     int? maxLines,
+    TxtClrType? colorType,
+    TxtFntWt? fontWeightType,
+    double? height,
   }) {
     return Text(
       this,
       overflow: overflow,
       textAlign: textAlign,
       maxLines: maxLines,
-      style: GoogleFonts.sora(
+      style: GoogleFonts.poppins(
         textStyle: TextStyle(
-          fontSize: 14.sp,
-          color: color,
-          fontWeight: fontWeight,
+          height: height,
+          fontSize: 16.sp,
+          color: switch (colorType) {
+            TxtClrType.g54 => Pallete.textBlack54,
+            TxtClrType.g41 => Pallete.textGrey41,
+            TxtClrType.g70 => Pallete.textGrey70,
+            TxtClrType.g78 => Pallete.textGrey78,
+            _ => color,
+          },
+          fontWeight: switch (fontWeightType) {
+            TxtFntWt.med => FontWeight.w500,
+            TxtFntWt.sBold => FontWeight.w600,
+            TxtFntWt.bold => FontWeight.w700,
+            _ => fontWeight,
+          },
           fontFamily: fontFamily,
           fontStyle: fontStyle,
           decoration: decoration,
@@ -140,17 +169,32 @@ extension StyledTextExtension12 on String {
     TextDecoration? decoration,
     TextAlign? textAlign,
     int? maxLines,
+    TxtClrType? colorType,
+    TxtFntWt? fontWeightType,
+    double? height,
   }) {
     return Text(
       this,
       overflow: overflow,
       textAlign: textAlign,
       maxLines: maxLines,
-      style: GoogleFonts.sora(
+      style: GoogleFonts.poppins(
         textStyle: TextStyle(
-          fontSize: 12.sp,
-          color: color,
-          fontWeight: fontWeight,
+          height: height,
+          fontSize: 14.sp,
+          color: switch (colorType) {
+            TxtClrType.g54 => Pallete.textBlack54,
+            TxtClrType.g41 => Pallete.textGrey41,
+            TxtClrType.g70 => Pallete.textGrey70,
+            TxtClrType.g78 => Pallete.textGrey78,
+            _ => color,
+          },
+          fontWeight: switch (fontWeightType) {
+            TxtFntWt.med => FontWeight.w500,
+            TxtFntWt.sBold => FontWeight.w600,
+            TxtFntWt.bold => FontWeight.w700,
+            _ => fontWeight,
+          },
           fontFamily: fontFamily,
           fontStyle: fontStyle,
           decoration: decoration,
@@ -170,17 +214,75 @@ extension StyledTextExtension16 on String {
     TextDecoration? decoration,
     TextAlign? textAlign,
     int? maxLines,
+    TxtClrType? colorType,
+    TxtFntWt? fontWeightType,
+    double? height,
   }) {
     return Text(
       this,
       overflow: overflow,
       textAlign: textAlign,
       maxLines: maxLines,
-      style: GoogleFonts.sora(
+      style: GoogleFonts.poppins(
         textStyle: TextStyle(
-          fontSize: 16.sp,
-          color: color,
-          fontWeight: fontWeight,
+          height: height,
+          fontSize: 18.sp,
+          color: switch (colorType) {
+            TxtClrType.g54 => Pallete.textBlack54,
+            TxtClrType.g41 => Pallete.textGrey41,
+            TxtClrType.g70 => Pallete.textGrey70,
+            TxtClrType.g78 => Pallete.textGrey78,
+            _ => color,
+          },
+          fontWeight: switch (fontWeightType) {
+            TxtFntWt.med => FontWeight.w500,
+            TxtFntWt.sBold => FontWeight.w600,
+            TxtFntWt.bold => FontWeight.w700,
+            _ => fontWeight,
+          },
+          fontFamily: fontFamily,
+          fontStyle: fontStyle,
+          decoration: decoration,
+        ),
+      ),
+    );
+  }
+}
+
+extension StyledTextExtension18 on String {
+  Text txt18({
+    Color? color,
+    FontWeight? fontWeight,
+    String? fontFamily,
+    FontStyle? fontStyle,
+    TextOverflow? overflow,
+    TextDecoration? decoration,
+    TextAlign? textAlign,
+    int? maxLines,
+    TxtClrType? colorType,
+    TxtFntWt? fontWeightType,
+  }) {
+    return Text(
+      this,
+      overflow: overflow,
+      textAlign: textAlign,
+      maxLines: maxLines,
+      style: GoogleFonts.poppins(
+        textStyle: TextStyle(
+          fontSize: 20.sp,
+          color: switch (colorType) {
+            TxtClrType.g54 => Pallete.textBlack54,
+            TxtClrType.g41 => Pallete.textGrey41,
+            TxtClrType.g70 => Pallete.textGrey70,
+            TxtClrType.g78 => Pallete.textGrey78,
+            _ => color,
+          },
+          fontWeight: switch (fontWeightType) {
+            TxtFntWt.med => FontWeight.w500,
+            TxtFntWt.sBold => FontWeight.w600,
+            TxtFntWt.bold => FontWeight.w700,
+            _ => fontWeight,
+          },
           fontFamily: fontFamily,
           fontStyle: fontStyle,
           decoration: decoration,
@@ -200,17 +302,30 @@ extension StyledTextExtension24 on String {
     TextDecoration? decoration,
     TextAlign? textAlign,
     int? maxLines,
+    TxtClrType? colorType,
+    TxtFntWt? fontWeightType,
   }) {
     return Text(
       this,
       overflow: overflow,
       textAlign: textAlign,
       maxLines: maxLines,
-      style: GoogleFonts.sora(
+      style: GoogleFonts.poppins(
         textStyle: TextStyle(
-          fontSize: 24.sp,
-          color: color,
-          fontWeight: fontWeight,
+          fontSize: 26.sp,
+          color: switch (colorType) {
+            TxtClrType.g54 => Pallete.textBlack54,
+            TxtClrType.g41 => Pallete.textGrey41,
+            TxtClrType.g70 => Pallete.textGrey70,
+            TxtClrType.g78 => Pallete.textGrey78,
+            _ => color,
+          },
+          fontWeight: switch (fontWeightType) {
+            TxtFntWt.med => FontWeight.w500,
+            TxtFntWt.sBold => FontWeight.w600,
+            TxtFntWt.bold => FontWeight.w700,
+            _ => fontWeight,
+          },
           fontFamily: fontFamily,
           fontStyle: fontStyle,
           decoration: decoration,
@@ -417,4 +532,18 @@ extension WidgetAnimation on Widget {
         duration: animatiomDuration ?? 500.ms,
         curve: curve ?? Curves.decelerate,
       );
+}
+
+enum TxtClrType {
+  g78,
+  g41,
+  g54,
+  g70,
+}
+
+enum TxtFntWt {
+  reg,
+  med,
+  sBold,
+  bold,
 }

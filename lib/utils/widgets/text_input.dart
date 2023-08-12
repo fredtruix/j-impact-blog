@@ -12,7 +12,6 @@ class TextInputWidget extends StatelessWidget {
   final double? height;
   final double? width;
   final String hintText;
-  final String inputTitle;
   final TextEditingController controller;
   final bool obscuretext;
   final FormFieldValidator<String>? validator;
@@ -42,7 +41,6 @@ class TextInputWidget extends StatelessWidget {
     this.height,
     this.width,
     required this.hintText,
-    required this.inputTitle,
     required this.controller,
     this.obscuretext = false,
     this.validator,
@@ -76,98 +74,75 @@ class TextInputWidget extends StatelessWidget {
       highlightColor: Colors.transparent,
       onTap: onTap,
       child: SizedBox(
-        // color: Colors.red,
-        height: 70.h,
-        width: width ?? double.infinity,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Padding(
-              padding: EdgeInsets.only(left: 15.w),
-              child: Text(
-                inputTitle,
-                style: GoogleFonts.poppins(
-                  textStyle: TextStyle(
-                      color: titleColor ?? Pallete.textGrey,
-                      fontSize: 14.sp,
-                      fontWeight: titleFontWeight ?? FontWeight.w500),
-                ),
+        height: 56.h,
+        child: TextFormField(
+          textAlign: textAlign ?? TextAlign.start,
+          autofocus: autofocus ?? false,
+          readOnly: readOnly ?? false,
+          textCapitalization: textCapitalization ?? TextCapitalization.none,
+          onEditingComplete: onEditingComplete,
+          maxLength: maxLength,
+          onTap: onTap,
+          onTapOutside: onTapOutside,
+          keyboardType: keyboardType,
+          focusNode: focusNode,
+          onFieldSubmitted: onFieldSubmitted,
+          onChanged: onChanged,
+          style: GoogleFonts.poppins(
+            textStyle: TextStyle(
+              fontSize: 18.sp,
+              color: Pallete.textBlack54,
+              fontWeight: FontWeight.w500,
+            ),
+          ),
+          controller: controller,
+          inputFormatters: inputFormatters,
+          obscureText: obscuretext,
+          obscuringCharacter: '*',
+          cursorColor: Colors.black,
+          decoration: InputDecoration(
+            prefix: prefix,
+            // isDense: true,
+            suffix: suffix,
+            contentPadding: contentPadding ??
+                EdgeInsets.symmetric(vertical: 10.w).copyWith(left: 15.w),
+            helperText: " ",
+            helperStyle: const TextStyle(fontSize: 0.0005),
+            errorStyle: const TextStyle(fontSize: 0.0005),
+            suffixIcon: suffixIcon,
+            suffixIconConstraints:
+                BoxConstraints(minHeight: 20.h, minWidth: 20.w),
+            hintText: hintText,
+            fillColor: Pallete.textInputFillGreyEE,
+            filled: true,
+            hintStyle: GoogleFonts.poppins(
+              textStyle: TextStyle(
+                fontSize: 18.sp,
+                color: Pallete.textGrey78,
               ),
             ),
-            iconn ?? const SizedBox.shrink(),
-            SizedBox(
-              height: 47.h,
-              child: TextFormField(
-                textAlign: textAlign ?? TextAlign.start,
-                autofocus: autofocus ?? false,
-                readOnly: readOnly ?? false,
-                textCapitalization:
-                    textCapitalization ?? TextCapitalization.none,
-                onEditingComplete: onEditingComplete,
-                maxLength: maxLength,
-                onTap: onTap,
-                onTapOutside: onTapOutside,
-                keyboardType: keyboardType,
-                focusNode: focusNode,
-                onFieldSubmitted: onFieldSubmitted,
-                onChanged: onChanged,
-                style: TextStyle(
-                  fontSize: 15.sp,
-                  fontFamily: AppTexts.appFont,
-                ),
-                controller: controller,
-                inputFormatters: inputFormatters,
-                obscureText: obscuretext,
-                obscuringCharacter: '*',
-                cursorColor: Colors.black,
-                decoration: InputDecoration(
-                  prefix: prefix,
-                  isDense: true,
-                  suffix: suffix,
-                  contentPadding: contentPadding ??
-                      EdgeInsets.symmetric(vertical: 10.w).copyWith(left: 15.w),
-                  helperText: " ",
-                  helperStyle: const TextStyle(fontSize: 0.0005),
-                  errorStyle: const TextStyle(fontSize: 0.0005),
-                  suffixIcon: suffixIcon,
-                  suffixIconConstraints:
-                      BoxConstraints(minHeight: 20.h, minWidth: 20.w),
-                  hintText: hintText,
-                  fillColor: Pallete.greyFill,
-                  filled: true,
-                  hintStyle: GoogleFonts.poppins(
-                    textStyle: TextStyle(
-                      fontSize: 14.sp,
-                      color: Pallete.descriptionGrey,
-                      fontWeight: FontWeight.w500,
-                    ),
-                  ),
-                  border: OutlineInputBorder(
-                    borderSide: const BorderSide(color: Pallete.greyFill),
-                    borderRadius: BorderRadius.circular(30.r),
-                  ),
-                  enabledBorder: OutlineInputBorder(
-                    borderSide: const BorderSide(color: Pallete.greyFill),
-                    borderRadius: BorderRadius.circular(30.r),
-                  ),
-                  focusedBorder: OutlineInputBorder(
-                    borderSide: const BorderSide(color: Pallete.greyFill),
-                    borderRadius: BorderRadius.circular(30.r),
-                  ),
-                  errorBorder: OutlineInputBorder(
-                    borderSide: const BorderSide(color: Colors.red),
-                    borderRadius: BorderRadius.circular(30.r),
-                  ),
-                  focusedErrorBorder: OutlineInputBorder(
-                    borderSide: const BorderSide(color: Pallete.greyFill),
-                    borderRadius: BorderRadius.circular(30.r),
-                  ),
-                ),
-                validator: validator,
-              ),
+            border: OutlineInputBorder(
+              borderSide: const BorderSide(color: Pallete.textInputFillGreyEE),
+              borderRadius: BorderRadius.circular(12.r),
             ),
-          ],
+            enabledBorder: OutlineInputBorder(
+              borderSide: const BorderSide(color: Pallete.textInputFillGreyEE),
+              borderRadius: BorderRadius.circular(12.r),
+            ),
+            focusedBorder: OutlineInputBorder(
+              borderSide: const BorderSide(color: Pallete.textInputFillGreyEE),
+              borderRadius: BorderRadius.circular(12.r),
+            ),
+            errorBorder: OutlineInputBorder(
+              borderSide: const BorderSide(color: Pallete.redColor),
+              borderRadius: BorderRadius.circular(12.r),
+            ),
+            focusedErrorBorder: OutlineInputBorder(
+              borderSide: const BorderSide(color: Pallete.textInputFillGreyEE),
+              borderRadius: BorderRadius.circular(12.r),
+            ),
+          ),
+          validator: validator,
         ),
       ),
     );
