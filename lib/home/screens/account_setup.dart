@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:jimpact/component/account_button.dart';
-import 'package:jimpact/providers/user_provider.dart';
 
 
 class AccountSetUp extends StatefulWidget {
