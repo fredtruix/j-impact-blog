@@ -12,6 +12,7 @@ class Pallete {
   static const greyPinkF2 = Color(0xFFF2F0F0);
   static const bgGreyFB = Color(0xFFFBFBFB);
   static const greyA7 = Color(0xFFA7A7A7);
+  static const greyC9 = Color(0xFFC9C9C9);
 
   //!
   //!

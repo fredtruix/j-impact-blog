@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:jimpact/features/base_nav/widgets/nav_bar_widget.dart';
 import 'package:jimpact/features/base_nav/wrapper/base_nav_controller.dart';
+import 'package:jimpact/features/base_nav/wrapper/side_nav_drawer.dart';
 import 'package:jimpact/theme/palette.dart';
 import 'package:jimpact/utils/app_constants.dart';
 import 'package:jimpact/utils/app_extensions.dart';
@@ -16,8 +17,28 @@ class BaseNavWrapper extends ConsumerWidget {
     int indexFromController = ref.watch(baseNavControllerProvider);
     return Scaffold(
       backgroundColor: Pallete.bgGreyFB,
+      drawer: const NavDrawer(),
       // pages
-      body: pages[indexFromController],
+      body: Stack(
+        children: [
+          pages[indexFromController],
+          switch (indexFromController == 0 || indexFromController == 4) {
+            true => Positioned(
+                right: 34.w,
+                top: 75.h,
+                child: Builder(builder: (context) {
+                  return SizedBox(
+                    height: 32.h,
+                    width: 32.h,
+                  ).tap(onTap: () {
+                    Scaffold.of(context).openDrawer();
+                  });
+                }),
+              ),
+            false => const SizedBox.shrink(),
+          }
+        ],
+      ),
       floatingActionButton: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
@@ -66,3 +87,5 @@ class BaseNavWrapper extends ConsumerWidget {
     );
   }
 }
+
+
