@@ -9,6 +9,9 @@ class Pallete {
   static const redColor = Color(0xFFD03D2D);
   static const textInputFillGreyEE = Color(0xFFEEECEC);
   static const boxGrey = Color(0xFFEDEDED);
+  static const greyPinkF2 = Color(0xFFF2F0F0);
+  static const bgGreyFB = Color(0xFFFBFBFB);
+  static const greyA7 = Color(0xFFA7A7A7);
 
   //!
   //!

@@ -2,14 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:jimpact/features/base_nav/wrapper/base_nav_wrapper.dart';
-import 'package:jimpact/features/profile/views/interests_selection_view.dart';
 import 'package:jimpact/theme/palette.dart';
 import 'package:jimpact/utils/app_extensions.dart';
 import 'package:jimpact/utils/nav.dart';
 import 'package:jimpact/utils/pop_overlay.dart';
 import 'package:jimpact/utils/widgets/appbar.dart';
 import 'package:jimpact/utils/widgets/button.dart';
-import 'package:jimpact/utils/widgets/myicon.dart';
 import 'package:simple_notifier/simple_notifier.dart';
 
 class JoinCommunityView extends ConsumerStatefulWidget {

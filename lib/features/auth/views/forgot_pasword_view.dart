@@ -1,22 +1,13 @@
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_animate/num_duration_extensions.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:glass/glass.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:jimpact/features/auth/views/sign_in_view.dart';
-import 'package:jimpact/features/profile/views/interests_selection_view.dart';
-import 'package:jimpact/shared/app_texts.dart';
 import 'package:jimpact/theme/palette.dart';
 import 'package:jimpact/utils/app_constants.dart';
 import 'package:jimpact/utils/app_extensions.dart';
 import 'package:jimpact/utils/nav.dart';
 import 'package:jimpact/utils/pop_overlay.dart';
 import 'package:jimpact/utils/widgets/button.dart';
-import 'package:jimpact/utils/widgets/myicon.dart';
 import 'package:jimpact/utils/widgets/text_input.dart';
-import 'package:simple_notifier/simple_notifier.dart';
 
 class ForgotPasswordView extends ConsumerStatefulWidget {
   const ForgotPasswordView({super.key});

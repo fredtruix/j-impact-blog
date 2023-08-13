@@ -8,7 +8,6 @@ import 'package:glass/glass.dart';
 import 'package:jimpact/theme/palette.dart';
 import 'package:jimpact/utils/app_constants.dart';
 import 'package:jimpact/utils/app_extensions.dart';
-import 'package:jimpact/utils/nav.dart';
 import 'package:jimpact/utils/widgets/button.dart';
 
 final toggleOverlayControllerProvider =

@@ -1,13 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:glass/glass.dart';
 import 'package:jimpact/features/auth/views/choose_auth_route_view.dart';
 import 'package:jimpact/theme/palette.dart';
-import 'package:jimpact/utils/app_constants.dart';
-import 'package:jimpact/utils/app_extensions.dart';
-import 'package:jimpact/utils/pop_overlay.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
