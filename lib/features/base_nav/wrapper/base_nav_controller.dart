@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:jimpact/features/groups/views/explore_connect_groups_view.dart';
 import 'package:jimpact/features/home/views/home_feed_view.dart';
-import 'package:jimpact/utils/app_extensions.dart';
+import 'package:jimpact/features/notifications/views/notifications_view.dart';
+import 'package:jimpact/features/profile/views/profile_view.dart';
+import 'package:jimpact/features/search/views/search_view.dart';
 import 'package:phosphor_flutter/phosphor_flutter.dart';
 
 ///! the state notifier provider for controlling the state of the base nav wrapper
@@ -32,10 +35,10 @@ void moveToPage({
 //! List of pages
 List<Widget> pages = [
   const HomeFeedView(),
-  Center(child: 'search'.txt()),
-  Center(child: 'explore'.txt()),
-  Center(child: 'notif'.txt()),
-  Center(child: 'person'.txt()),
+  const SearchView(),
+  const ExploreConnectedGroupsView(),
+  const NotificationsView(),
+  const ProfileView(),
 ];
 
 //! nav widget enums
