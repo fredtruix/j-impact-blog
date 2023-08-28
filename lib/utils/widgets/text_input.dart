@@ -78,7 +78,7 @@ class TextInputWidget extends StatelessWidget {
       child: SizedBox(
         height: height ?? 56.h,
         child: TextFormField(
-          maxLines: maxLines,
+          maxLines: maxLines ?? 1,
           textAlign: textAlign ?? TextAlign.start,
           autofocus: autofocus ?? false,
           readOnly: readOnly ?? false,

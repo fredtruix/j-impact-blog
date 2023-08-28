@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:jimpact/features/blogs/views/blogs_view.dart';
 import 'package:jimpact/features/blogs/widgets/blog_card.dart';
 import 'package:jimpact/features/groups/views/open_group_view.dart';
 import 'package:jimpact/features/home/widgets/search_bar.dart';
@@ -48,11 +49,15 @@ class HomeFeedView extends ConsumerWidget {
                                 fontWeightType: TxtFntWt.med,
                                 colorType: TxtClrType.g54,
                               ),
-                              'See all'.txt(
+                              'See all'
+                                  .txt(
                                 size: 13.sp,
                                 fontWeightType: TxtFntWt.med,
                                 colorType: TxtClrType.g54,
-                              ),
+                              )
+                                  .tap(onTap: () {
+                                goTo(context: context, view: const BlogsView());
+                              }),
                             ],
                           ),
                         ),
@@ -73,7 +78,7 @@ class HomeFeedView extends ConsumerWidget {
                               return Padding(
                                 padding:
                                     EdgeInsets.only(right: 16.w, bottom: 2.h),
-                                child:  const BlogCard(),
+                                child: const BlogCard(),
                               );
                             },
                           ),
@@ -402,4 +407,3 @@ class HomeFeedView extends ConsumerWidget {
     );
   }
 }
-

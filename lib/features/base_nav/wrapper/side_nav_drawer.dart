@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:jimpact/features/auth/views/choose_auth_route_view.dart';
 import 'package:jimpact/features/base_nav/wrapper/base_nav_controller.dart';
 import 'package:jimpact/features/blogs/views/blogs_view.dart';
 import 'package:jimpact/features/help/views/contact_us_view.dart';
@@ -123,9 +124,9 @@ class NavDrawer extends ConsumerWidget {
                       case 2:
                         goTo(context: context, view: const ContactUsView());
                         break;
-                      // case 3:
-                      //   goTo(context: context, view: const SettingsView());
-                      //   break;
+                      case 3:
+                        goTo(context: context, view: const ChooseAuthRouteView());
+                        break;
                       default:
                     }
                   },
