@@ -4,6 +4,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:jimpact/features/base_nav/wrapper/base_nav_controller.dart';
 import 'package:jimpact/features/blogs/views/blogs_view.dart';
+import 'package:jimpact/features/help/views/contact_us_view.dart';
+import 'package:jimpact/features/help/views/help_view.dart';
 import 'package:jimpact/features/profile/views/edit_profile_view.dart';
 import 'package:jimpact/features/settings/views/settings_view.dart';
 
@@ -113,6 +115,20 @@ class NavDrawer extends ConsumerWidget {
               children: List.generate(
                 sideNavItems2.length,
                 (index) => ListTile(
+                  onTap: () {
+                    switch (index) {
+                      case 0:
+                        goTo(context: context, view: const HelpView());
+                        break;
+                      case 2:
+                        goTo(context: context, view: const ContactUsView());
+                        break;
+                      // case 3:
+                      //   goTo(context: context, view: const SettingsView());
+                      //   break;
+                      default:
+                    }
+                  },
                   leading: Icon(
                     sideNavItems2[index].icon,
                     size: 23.sp,

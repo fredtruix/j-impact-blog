@@ -36,6 +36,7 @@ class TextInputWidget extends StatelessWidget {
   final bool? autofocus;
   final TextAlign? textAlign;
   final EdgeInsetsGeometry? contentPadding;
+  final int? maxLines;
   const TextInputWidget({
     Key? key,
     this.height,
@@ -65,6 +66,7 @@ class TextInputWidget extends StatelessWidget {
     this.autofocus,
     this.textAlign,
     this.contentPadding,
+    this.maxLines,
   }) : super(key: key);
 
   @override
@@ -74,8 +76,9 @@ class TextInputWidget extends StatelessWidget {
       highlightColor: Colors.transparent,
       onTap: onTap,
       child: SizedBox(
-        height: 56.h,
+        height: height ?? 56.h,
         child: TextFormField(
+          maxLines: maxLines,
           textAlign: textAlign ?? TextAlign.start,
           autofocus: autofocus ?? false,
           readOnly: readOnly ?? false,

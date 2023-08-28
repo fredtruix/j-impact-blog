@@ -1,13 +1,16 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:jimpact/features/settings/widgets/settings_tile.dart';
+import 'package:phosphor_flutter/phosphor_flutter.dart';
+import 'package:simple_notifier/simple_notifier.dart';
+
 import 'package:jimpact/features/auth/views/change_password_view.dart';
 import 'package:jimpact/theme/palette.dart';
 import 'package:jimpact/utils/app_extensions.dart';
 import 'package:jimpact/utils/nav.dart';
 import 'package:jimpact/utils/widgets/appbar.dart';
-import 'package:phosphor_flutter/phosphor_flutter.dart';
-import 'package:simple_notifier/simple_notifier.dart';
 
 class SettingsView extends ConsumerStatefulWidget {
   const SettingsView({super.key});
@@ -121,36 +124,13 @@ class _SettingsViewState extends ConsumerState<SettingsView> {
             28.sbH,
 
             //! change password
-            SizedBox(
-              height: 50.h,
-              width: double.infinity,
-              child: Row(
-                children: [
-                  Container(
-                    height: 50.h,
-                    width: 50.h,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(15.r),
-                      color: const Color(0xFFD5D5D5),
-                    ),
-                    child: Center(
-                      child: Icon(PhosphorIcons.pen, size: 24.sp),
-                    ),
-                  ),
-                  20.sbW,
-                  'Password'.txt16(
-                    colorType: TxtClrType.g54,
-                  ),
-                  const Spacer(),
-                  const Icon(
-                    Icons.keyboard_arrow_right,
-                    color: Pallete.redColor,
-                  ),
-                ],
-              ),
-            ).tap(onTap: () {
-              goTo(context: context, view: const ChangePasswordView());
-            }),
+            SettingsTile(
+              icon: PhosphorIcons.pen,
+              title: 'Password',
+              onTap: () {
+                goTo(context: context, view: const ChangePasswordView());
+              },
+            )
           ],
         ),
       ),
