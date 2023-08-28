@@ -2,9 +2,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:jimpact/features/blogs/views/blogs_view.dart';
+import 'package:jimpact/features/profile/views/edit_profile_view.dart';
 
 import 'package:jimpact/theme/palette.dart';
 import 'package:jimpact/utils/app_extensions.dart';
+import 'package:jimpact/utils/nav.dart';
 import 'package:phosphor_flutter/phosphor_flutter.dart';
 
 class NavDrawer extends ConsumerWidget {
@@ -62,6 +65,17 @@ class NavDrawer extends ConsumerWidget {
               children: List.generate(
                 sideNavItems1.length,
                 (index) => ListTile(
+                  onTap: () {
+                    switch (index) {
+                      case 0:
+                        goTo(context: context, view: const EditProfileView());
+                        break;
+                      case 1:
+                        goTo(context: context, view: const BlogsView());
+                        break;
+                      default:
+                    }
+                  },
                   leading: Icon(
                     sideNavItems1[index].icon,
                     size: 23.sp,

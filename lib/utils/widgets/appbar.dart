@@ -51,7 +51,7 @@ AppBar customAppBar(String title,
         title,
         style: GoogleFonts.poppins(
           textStyle: TextStyle(
-            fontSize: 20.sp,
+            fontSize: 22.sp,
             color: Pallete.textGrey41,
           ),
         ),

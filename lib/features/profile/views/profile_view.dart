@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:jimpact/features/groups/views/open_group_view.dart';
+import 'package:jimpact/features/profile/views/edit_profile_view.dart';
 import 'package:jimpact/theme/palette.dart';
 import 'package:jimpact/utils/app_constants.dart';
 import 'package:jimpact/utils/app_extensions.dart';
@@ -69,7 +70,9 @@ class _ProfileViewState extends State<ProfileView>
 
                   //! edit profile
                   BButton(
-                    onTap: () {},
+                    onTap: () {
+                      goTo(context: context, view: const EditProfileView());
+                    },
                     height: 40.h,
                     width: 130.w,
                     radius: 5.r,

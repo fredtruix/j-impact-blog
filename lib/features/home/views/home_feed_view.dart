@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:jimpact/features/blogs/widgets/blog_card.dart';
 import 'package:jimpact/features/groups/views/open_group_view.dart';
 import 'package:jimpact/features/home/widgets/search_bar.dart';
 import 'package:jimpact/utils/nav.dart';
@@ -72,85 +73,7 @@ class HomeFeedView extends ConsumerWidget {
                               return Padding(
                                 padding:
                                     EdgeInsets.only(right: 16.w, bottom: 2.h),
-                                child: Card(
-                                  margin: EdgeInsets.zero,
-                                  child: Container(
-                                    height: 290.h,
-                                    width: 170.w,
-                                    decoration: BoxDecoration(
-                                      color: Pallete.whiteColor,
-                                      borderRadius: BorderRadius.circular(15.r),
-                                    ),
-                                    child: Column(
-                                      children: [
-                                        Padding(
-                                          padding: const EdgeInsets.all(8.0),
-                                          child: Placeholder(
-                                            fallbackHeight: 124.h,
-                                            color: Pallete.textInputFillGreyEE,
-                                          ),
-                                        ),
-                                        16.sbH,
-
-                                        //! title
-                                        Padding(
-                                          padding: 16.padH,
-                                          child: Column(
-                                            children: [
-                                              'The Reason for the Season'.txt(
-                                                size: 13.sp,
-                                                fontWeightType: TxtFntWt.med,
-                                                colorType: TxtClrType.g54,
-                                                maxLines: 2,
-                                                overflow: TextOverflow.ellipsis,
-                                              ),
-                                              8.sbH,
-                                              'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed'
-                                                  .txt(
-                                                size: 11.sp,
-                                                fontWeightType: TxtFntWt.reg,
-                                                colorType: TxtClrType.g78,
-                                                maxLines: 3,
-                                                overflow: TextOverflow.ellipsis,
-                                              ),
-                                              16.sbH,
-                                              Row(
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment
-                                                        .spaceBetween,
-                                                children: [
-                                                  'Jesus Impact'.txt(
-                                                    size: 10.sp,
-                                                    fontWeightType:
-                                                        TxtFntWt.med,
-                                                    colorType: TxtClrType.g54,
-                                                  ),
-                                                  Row(
-                                                    children: [
-                                                      '12'.txt(
-                                                          size: 12.sp,
-                                                          fontWeightType:
-                                                              TxtFntWt.med,
-                                                          color:
-                                                              Pallete.redColor),
-                                                      5.sbW,
-                                                      Icon(
-                                                          PhosphorIcons
-                                                              .userFill,
-                                                          size: 14.sp,
-                                                          color:
-                                                              Pallete.redColor),
-                                                    ],
-                                                  ),
-                                                ],
-                                              ),
-                                            ],
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                ),
+                                child:  const BlogCard(),
                               );
                             },
                           ),
@@ -479,3 +402,4 @@ class HomeFeedView extends ConsumerWidget {
     );
   }
 }
+
