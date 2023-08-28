@@ -2,8 +2,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:jimpact/features/base_nav/wrapper/base_nav_controller.dart';
 import 'package:jimpact/features/blogs/views/blogs_view.dart';
 import 'package:jimpact/features/profile/views/edit_profile_view.dart';
+import 'package:jimpact/features/settings/views/settings_view.dart';
 
 import 'package:jimpact/theme/palette.dart';
 import 'package:jimpact/utils/app_extensions.dart';
@@ -72,6 +74,13 @@ class NavDrawer extends ConsumerWidget {
                         break;
                       case 1:
                         goTo(context: context, view: const BlogsView());
+                        break;
+                      case 2:
+                        moveToPage(context: context, ref: ref, index: 2);
+                        goBack(context);
+                        break;
+                      case 3:
+                        goTo(context: context, view: const SettingsView());
                         break;
                       default:
                     }

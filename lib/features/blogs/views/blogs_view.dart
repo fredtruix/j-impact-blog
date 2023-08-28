@@ -16,6 +16,7 @@ class BlogsView extends ConsumerWidget {
     return DefaultTabController(
       length: 6,
       child: Scaffold(
+        backgroundColor: Pallete.bgGreyFB,
         appBar: customAppBar('Blogs', context: context),
         body: Column(
           children: [
