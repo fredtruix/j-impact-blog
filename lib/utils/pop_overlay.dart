@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_animate/num_duration_extensions.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:glass/glass.dart';
 
 import 'package:jimpact/theme/palette.dart';
 import 'package:jimpact/utils/app_constants.dart';
@@ -136,13 +135,7 @@ class PopUpOverLayWidget extends ConsumerWidget {
             animatiomDuration: 100.ms,
           ),
         ),
-      )
-          .asGlass(
-            tintColor: Pallete.textBlack54.withOpacity(0.8),
-            blurX: 3,
-            blurY: 3,
-          )
-          .fadeIn(delay: 0.ms, animatiomDuration: 100.ms),
+      ).fadeIn(delay: 0.ms, animatiomDuration: 100.ms),
     );
   }
 }

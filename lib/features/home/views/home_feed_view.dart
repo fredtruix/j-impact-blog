@@ -2,7 +2,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:glass/glass.dart';
 import 'package:jimpact/features/groups/views/open_group_view.dart';
 import 'package:jimpact/features/home/widgets/search_bar.dart';
 import 'package:jimpact/utils/nav.dart';
@@ -474,10 +473,6 @@ class HomeFeedView extends ConsumerWidget {
                 )
               ],
             ),
-          ).asGlass(
-            tintColor: Pallete.textInputFillGreyEE.withOpacity(0.5),
-            blurX: 5,
-            blurY: 5,
           ),
         ],
       ),

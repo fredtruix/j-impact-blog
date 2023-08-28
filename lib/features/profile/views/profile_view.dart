@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:glass/glass.dart';
 import 'package:jimpact/features/groups/views/open_group_view.dart';
 import 'package:jimpact/theme/palette.dart';
 import 'package:jimpact/utils/app_constants.dart';
@@ -122,19 +121,130 @@ class _ProfileViewState extends State<ProfileView>
                       ],
                     ),
                   ),
-                  39.sbH,
+                  19.sbH,
 
                   SizedBox(
-                    height: 500,
+                    height: 600.h,
                     child: TabBarView(
                       controller: tabController,
                       children: [
-                        const Placeholder(),
+                        //! posts
+                        ListView.builder(
+                          padding: EdgeInsets.only(top: 20.h),
+                          physics: const AlwaysScrollableScrollPhysics(
+                            parent: BouncingScrollPhysics(),
+                          ),
+                          itemCount: 7,
+                          itemBuilder: (context, index) {
+                            return Padding(
+                              padding: EdgeInsets.symmetric(horizontal: 32.w)
+                                  .copyWith(bottom: 26.h),
+                              child: Card(
+                                shadowColor:
+                                    const Color(0xFF00000D).withOpacity(0.4),
+                                elevation: 10,
+                                margin: EdgeInsets.zero,
+                                child: Container(
+                                  width: double.infinity,
+                                  padding: EdgeInsets.only(
+                                    top: 18.h,
+                                    left: 16.w,
+                                    right: 16.w,
+                                    bottom: 21.5.h,
+                                  ),
+                                  decoration: BoxDecoration(
+                                    color: Pallete.whiteColor,
+                                    borderRadius: BorderRadius.circular(15.r),
+                                  ),
+                                  child: Column(
+                                    children: [
+                                      Row(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          CircleAvatar(
+                                            radius: 17.h,
+                                          ),
+                                          8.sbW,
+                                          Column(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.center,
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
+                                            children: [
+                                              //! name
+                                              'Name Surname'.txt(
+                                                size: 14.sp,
+                                                fontWeightType: TxtFntWt.med,
+                                                colorType: TxtClrType.g54,
+                                              ),
+
+                                              //! username
+                                              '@username'.txt(
+                                                size: 12.sp,
+                                                color: Pallete.greyA7,
+                                              ),
+                                            ],
+                                          ),
+                                          const Spacer(),
+                                          Icon(
+                                            Icons.more_vert,
+                                            size: 24.sp,
+                                            color: Pallete.greyA7,
+                                          ),
+                                        ],
+                                      ),
+                                      16.sbH,
+                                      switch (index % 2 == 0) {
+                                        true =>
+                                          'Lorem ipsum dolor sit amet, @consetetur sadipscing elitr, sed diam nonumy elitr eirmod dolor sit amet.'
+                                              .txt16(
+                                            colorType: TxtClrType.g78,
+                                            maxLines: 6,
+                                            overflow: TextOverflow.ellipsis,
+                                          ),
+                                        false =>
+                                          'Lorem ipsum dolor sit amet, @consetetur sadipscing elitr, orem ipsum dolor sit amet, @consetetur sadipscing elitr, sed diam nonumy elitr eirmod dolor sit amet. sadipscing elitr, sed diam nonumy elitr eirmod dolor sit amet.sesed diam nonumy elitr eirmod dolor sit amet. sadipscing elitr, sed diam nonumy elitr eirmod dolor sit amet.setetur sadipscing elitr, sed diam nonumy elitr eirmod '
+                                              .txt16(
+                                            colorType: TxtClrType.g78,
+                                            maxLines: 6,
+                                            overflow: TextOverflow.ellipsis,
+                                          ),
+                                      },
+                                      21.7.sbH,
+                                      Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.start,
+                                        children: [
+                                          const Icon(
+                                            PhosphorIcons.heartFill,
+                                            color: Pallete.greyA7,
+                                          ),
+                                          20.6.sbW,
+                                          const Icon(
+                                            PhosphorIcons.chatCircleFill,
+                                            color: Pallete.greyA7,
+                                          ),
+                                          20.6.sbW,
+                                          const Icon(
+                                            PhosphorIcons.paperPlaneTiltFill,
+                                            color: Pallete.greyA7,
+                                          ),
+                                        ],
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            );
+                          },
+                        ),
 
                         //! groups
                         SingleChildScrollView(
                           child: Column(
                             children: [
+                              20.sbH,
                               //! open group
                               Padding(
                                 padding: 34.padH,
@@ -420,28 +530,26 @@ class _ProfileViewState extends State<ProfileView>
             ),
           ),
           //! header
-          Container(
-            height: 125.h,
-            width: width(context),
-            color: Colors.transparent,
-            padding: EdgeInsets.symmetric(horizontal: 34.w)
-                .copyWith(bottom: 7.h, top: 66.h),
-            child: Row(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [
-                const Icon(
-                  PhosphorIcons.listBold,
-                  color: Pallete.textBlack54,
-                ).tap(onTap: () {
-                  Scaffold.of(context).openDrawer();
-                })
-              ],
+          IgnorePointer(
+            child: Container(
+              height: 125.h,
+              width: width(context),
+              color: Colors.transparent,
+              padding: EdgeInsets.symmetric(horizontal: 34.w)
+                  .copyWith(bottom: 7.h, top: 66.h),
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  const Icon(
+                    PhosphorIcons.listBold,
+                    color: Pallete.textBlack54,
+                  ).tap(onTap: () {
+                    Scaffold.of(context).openDrawer();
+                  })
+                ],
+              ),
             ),
-          ).asGlass(
-            tintColor: Pallete.whiteColor.withOpacity(0.5),
-            blurX: 5,
-            blurY: 5,
           ),
         ],
       ),

@@ -1,7 +1,6 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:glass/glass.dart';
 import 'package:jimpact/theme/palette.dart';
 import 'package:jimpact/utils/app_constants.dart';
 import 'package:jimpact/utils/app_extensions.dart';
@@ -85,10 +84,6 @@ class NotificationsView extends ConsumerWidget {
                 ),
               ],
             ),
-          ).asGlass(
-            tintColor: Pallete.whiteColor.withOpacity(0.5),
-            blurX: 5,
-            blurY: 5,
           ),
         ],
       ),
