@@ -1,6 +1,5 @@
 import 'dart:math';
 
-import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
@@ -9,12 +8,6 @@ void displayDrawer(BuildContext context) {
   Scaffold.of(context).openDrawer();
 }
 
-//! file picker
-Future<FilePickerResult?> pickImage() async {
-  final image = await FilePicker.platform.pickFiles(type: FileType.image);
-
-  return image;
-}
 
 //! convert a string 24 hour time to 12 hour
 String convert24HourTo12Hour(String time24) {

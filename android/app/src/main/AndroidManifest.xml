@@ -1,7 +1,6 @@
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.jimpact">
-   <application
-        android:label="jimpact"
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    <application
+        android:label="j_impact_blog"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity
