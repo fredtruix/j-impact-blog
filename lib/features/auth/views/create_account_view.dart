@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:jimpact/features/auth/providers/auth_providers.dart';
 import 'package:jimpact/features/auth/views/sign_in_view.dart';
 import 'package:jimpact/features/profile/views/interests_selection_view.dart';
 import 'package:jimpact/shared/app_texts.dart';
@@ -57,6 +58,7 @@ class _CreateAccountViewState extends ConsumerState<CreateAccountView> {
   @override
   Widget build(BuildContext context) {
     PopUpOverlay? overlay = ref.watch(toggleOverlayControllerProvider);
+    bool isAuthLoading = ref.watch(authControllerProvider);
     return Stack(
       children: [
         Scaffold(
@@ -249,22 +251,41 @@ class _CreateAccountViewState extends ConsumerState<CreateAccountView> {
                     ).alignCenterLeft(),
                     49.sbH,
 
-                    ArrowButton(
-                      width: 200.w,
-                      onTap: () {
-                        showPopUpOverLay(
-                          context: context,
-                          ref: ref,
-                          overlay: const PopUpOverlay(
-                            image: 'successreg',
-                            title: 'Successful Registration',
-                            description:
-                                'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod',
-                          ),
-                        );
-                      },
-                      text: 'Get Started',
-                    ).alignCenterLeft(),
+                    isAuthLoading
+                        ? SizedBox(
+                            height: 50.h,
+                            child: const Center(
+                                child: CircularProgressIndicator(
+                              color: Pallete.redColor,
+                            )),
+                          )
+                        : ArrowButton(
+                            width: 200.w,
+                            onTap: () {
+                              ref
+                                  .read(authControllerProvider.notifier)
+                                  .signUpUser(
+                                    context: context,
+                                    email: _emailController.text,
+                                    password: _passwordController.text,
+                                    firstName: _firstNameController.text,
+                                    lastName: _lastNameController.text,
+                                    username: _usernameController.text,
+                                    onTap: () {
+                                      showPopUpOverLay(
+                                        context: context,
+                                        ref: ref,
+                                        overlay: const PopUpOverlay(
+                                          image: 'successreg',
+                                          title: 'Successful Registration',
+                                          description: 'Login to your account',
+                                        ),
+                                      );
+                                    },
+                                  );
+                            },
+                            text: 'Get Started',
+                          ).alignCenterLeft(),
                     60.sbH,
                   ],
                 ),

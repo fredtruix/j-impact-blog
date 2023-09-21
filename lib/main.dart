@@ -3,10 +3,11 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:jimpact/features/auth/views/choose_auth_route_view.dart';
 import 'package:jimpact/theme/palette.dart';
+import 'package:jimpact/utils/register_model_adapters.dart';
 
-void main() {
+Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  // await RegisterAdapters.initializeBDAndRegisterAdapters();
+  await RegisterAdapters.initializeBDAndRegisterAdapters();
   runApp(
     const ProviderScope(
       child: MyApp(),

@@ -1,8 +1,10 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/num_duration_extensions.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:jimpact/features/auth/providers/auth_providers.dart';
 import 'package:jimpact/features/auth/views/create_account_view.dart';
 import 'package:jimpact/features/auth/views/forgot_pasword_view.dart';
 import 'package:jimpact/features/base_nav/wrapper/base_nav_wrapper.dart';
@@ -41,8 +43,24 @@ class _SignInViewState extends ConsumerState<SignInView> {
     super.dispose();
   }
 
+  ValueNotifier<bool> isLoading = false.notifier;
+
+  void load() {
+    // int count = 0;
+    isLoading.value = true;
+    Future.delayed(6.seconds).whenComplete(
+      () {
+        isLoading.value = false;
+        goTo(context: context, view: const BaseNavWrapper());
+
+        // Navigator.of(context).popUntil((_) => count++ >= 2);
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
+    bool isAuthLoading = ref.watch(authControllerProvider);
     return Scaffold(
       extendBodyBehindAppBar: true,
       appBar: AppBar(
@@ -117,14 +135,28 @@ class _SignInViewState extends ConsumerState<SignInView> {
                   ),
                 ).alignCenterRight(),
                 51.sbH,
-
-                ArrowButton(
-                  width: 154.w,
-                  onTap: () {
-                    goTo(context: context, view: const BaseNavWrapper());
-                  },
-                  text: 'Sign in',
-                ).alignCenterLeft(),
+                isLoading.value
+                    ? SizedBox(
+                        height: 50.h,
+                        child: const Center(
+                            child: CircularProgressIndicator(
+                          color: Pallete.redColor,
+                        )),
+                      )
+                    : ArrowButton(
+                        width: 154.w,
+                        onTap: () {
+                          setState(() {
+                            load();
+                          });
+                          // ref.read(authControllerProvider.notifier).loginUser(
+                          //       context: context,
+                          //       email: _usernameController.text,
+                          //       password: _passwordController.text,
+                          //     );
+                        },
+                        text: 'Sign in',
+                      ).alignCenterLeft(),
                 144.sbH,
 
                 SizedBox(
